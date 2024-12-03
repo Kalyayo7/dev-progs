@@ -35,16 +35,13 @@ website = 'https://dvmn.org/profession-ref-program/kalyayo7/Cv1gt/'
 
 my_name = 'Великолепный программист и продавец - Аким'
 
-letter = '''From: paulinachipolino@yandex.ru
-To: paulinachipolino@yandex.ru
-Subject: Приглашение!
-Content-Type: text/plain; charset="UTF-8";'''
-
-
-
-
 email_from = 'paulinachipolino@yandex.ru'
 email_to = 'paulinachipolino@yandex.ru'
+
+letter = '''From: {0}
+To: {1}
+Subject: Приглашение!
+Content-Type: text/plain; charset="UTF-8";'''.format(email_from, email_to)
 
 
 
@@ -52,7 +49,3 @@ server = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
 server.login(login, password)
 server.sendmail(email_from, email_to, advertisement.format(letter, friend_name, my_name, website).encode("UTF-8"))
 server.quit()
-
-
-
-
