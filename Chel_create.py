@@ -1,6 +1,7 @@
 import file_operations
 from faker import Faker
 import random
+import os
 
 skill = ['Стремительный прыжок', 'Электрический выстрел', 'Ледяной удар', 'Стремительный удар', 'Кислотный взгляд', 'Тайный побег', 'Ледяной выстрел', 'Огненный заряд']
 
@@ -39,6 +40,9 @@ rune_skills()
 
 
 def main():
+
+    os.mkdir("gde_papka")
+
     for i in range(10):
 
         skill_3 = random.sample(skill,3)
