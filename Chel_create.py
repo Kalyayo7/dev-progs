@@ -1,9 +1,11 @@
-import file_operations
-from faker import Faker
-import random
 import os
+import file_operations
+import random
+from faker import Faker
 
-skill = [
+
+
+SKILL = [
     'Стремительный прыжок',
     'Электрический выстрел',
     'Ледяной удар',
@@ -14,7 +16,7 @@ skill = [
     'Огненный заряд'
 ]
 
-replace_values = {
+REPLACE_VALUES = {
     'а': 'а͠',
     'б': 'б̋',
     'в': 'в͒͠',
@@ -86,32 +88,31 @@ replace_values = {
 fake = Faker("ru_RU")
 
 def rune_skills():
-    for i in range(len(skill)):
-        for x, y in replace_values.items():
-            skill[i]=skill[i].replace(x,y)
+    for i in range(len(SKILL)):
+        for x, y in REPLACE_VALUES.items():
+            SKILL[i]=SKILL[i].replace(x,y)
 
 
 def main():
-    if not os.path.isdir("gde_papka"):
-        os.mkdir("gde_papka")
+    os.makedirs("gde_papka", exist_ok = True)
 
     rune_skills()
 
     for i in range(10):
-        skill_3 = random.sample(skill,3)
+        skill_3 = random.sample(SKILL,3)
         context = {
-          "first_name": fake.name(),
-          "last_name": '',
-          "job": fake.job(),
-          "town": fake.city(),
-          "strength": random.randint(3, 18),
-          "agility": random.randint(3, 18),
-          "endurance": random.randint(3, 18),
-          "intelligence": random.randint(3, 18),
-          "luck": random.randint(3, 18),
-          "skill_1": skill_3[0],
-          "skill_2": skill_3[1],
-          "skill_3": skill_3[2]
+            "first_name": fake.name(),
+            "last_name": '',
+            "job": fake.job(),
+            "town": fake.city(),
+            "strength": random.randint(3, 18),
+            "agility": random.randint(3, 18),
+            "endurance": random.randint(3, 18),
+            "intelligence": random.randint(3, 18),
+            "luck": random.randint(3, 18),
+            "skill_1": skill_3[0],
+            "skill_2": skill_3[1],
+            "skill_3": skill_3[2]
          }
 
         file_operations.render_template("charsheet.svg", f"gde_papka/{i}.svg", context)
