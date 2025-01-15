@@ -85,7 +85,7 @@ REPLACE_VALUES = {
     'Я': 'Я̋'
 }
 
-fake = Faker("ru_RU")
+FAKE = Faker("ru_RU")
 
 def rune_skills():
     for i in range(len(SKILL)):
@@ -101,10 +101,10 @@ def main():
     for i in range(10):
         skill_3 = random.sample(SKILL,3)
         context = {
-            "first_name": fake.name(),
+            "first_name": FAKE.name(),
             "last_name": '',
-            "job": fake.job(),
-            "town": fake.city(),
+            "job": FAKE.job(),
+            "town": FAKE.city(),
             "strength": random.randint(3, 18),
             "agility": random.randint(3, 18),
             "endurance": random.randint(3, 18),
