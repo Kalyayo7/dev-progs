@@ -21,17 +21,24 @@ def has_symbols(password):
     return any((not(character.isdigit()) and not(character.isalpha())) for character in password)
 
 
-func = [is_very_long(password), has_digit(password), has_lower_letters(password), has_upper_letters(password), has_symbols(password)]
+func = [
+    is_very_long(password),
+    has_digit(password),
+    has_lower_letters(password),
+    has_upper_letters(password),
+    has_symbols(password)
+]
 
 
-def good_pass(score):
+def main(score):
 
     for i in func:
         if i:
             score+=2
     print("Рейтинг пароля:", score)
 
-good_pass(score)
+if __name__ == '__main__':
+    main(score)
 
 
 
