@@ -1,6 +1,5 @@
 password = input("Введите пароль: ")
 
-score = 0
 
 def is_very_long(password):
     return len(password) > 11
@@ -17,6 +16,7 @@ def has_lower_letters(password):
 def has_upper_letters(password):
     return any(character.isupper() for character in password)
 
+
 def has_symbols(password):
     return any((not(character.isdigit()) and not(character.isalpha())) for character in password)
 
@@ -30,15 +30,16 @@ func = [
 ]
 
 
-def plus(score):
-
+def plus():
+    score = 0
     for i in func:
         if i:
             score+=2
     print("Рейтинг пароля:", score)
 
 def main():
-    plus(score)
+    plus()
+
 
 if __name__ == '__main__':
     main()
