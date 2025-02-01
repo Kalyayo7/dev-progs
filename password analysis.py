@@ -37,6 +37,7 @@ def plus():
             score+=2
     print("Рейтинг пароля:", score)
 
+
 def main():
     plus()
 
