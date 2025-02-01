@@ -30,15 +30,18 @@ func = [
 ]
 
 
-def main(score):
+def plus(score):
 
     for i in func:
         if i:
             score+=2
     print("Рейтинг пароля:", score)
 
+def main():
+    plus(score)
+
 if __name__ == '__main__':
-    main(score)
+    main()
 
 
 
