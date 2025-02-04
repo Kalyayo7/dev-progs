@@ -1,6 +1,3 @@
-password = input("Введите пароль: ")
-
-
 def is_very_long(password):
     return len(password) > 11
 
@@ -21,25 +18,26 @@ def has_symbols(password):
     return any((not(character.isdigit()) and not(character.isalpha())) for character in password)
 
 
-func = [
-    is_very_long(password),
-    has_digit(password),
-    has_lower_letters(password),
-    has_upper_letters(password),
-    has_symbols(password)
-]
-
-
-def plus():
+def evaluate_password(password):
+    checks = [
+        is_very_long,
+        has_digit,
+        has_lower_letters,
+        has_upper_letters,
+        has_symbols
+    ]
+    
     score = 0
-    for i in func:
-        if i:
-            score+=2
-    print("Рейтинг пароля:", score)
+    for check in checks:
+        if check(password):
+            score += 2
+    return score
 
 
 def main():
-    plus()
+    password = input("Введите пароль: ")
+    score = evaluate_password(password)
+    print("Рейтинг пароля:", score)
 
 
 if __name__ == '__main__':
